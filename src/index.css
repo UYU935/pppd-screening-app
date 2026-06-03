@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+/* タッチ操作で選択ハイライトが出ないように（ボタン主体UIのため） */
+button {
+  -webkit-tap-highlight-color: transparent;
+}

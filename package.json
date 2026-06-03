@@ -1,0 +1,29 @@
+{
+  "name": "pppd-screening-app",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "PPPD傾向チェック・説明PDF・個別リハ提示Webアプリ（院内説明補助ツール）",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host"
+  },
+  "dependencies": {
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.13.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  }
+}
