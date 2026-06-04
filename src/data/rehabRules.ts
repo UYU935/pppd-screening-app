@@ -27,10 +27,10 @@ export const COMMON_REHAB: RehabItem[] = [
   },
 ];
 
-/** タイプ別の追加リハ（軸スコア10点以上で追加） */
+/** 傾向別の追加リハ（軸スコア10点以上で追加） */
 export const TYPE_REHAB: Partial<Record<AxisKey, RehabItem>> = {
   visual: {
-    title: "視覚刺激型 追加メニュー",
+    title: "視覚刺激の傾向 追加メニュー",
     details: [
       "スマホスクロールは30秒から開始する",
       "スーパーは空いている時間に5分だけ入る",
@@ -39,7 +39,7 @@ export const TYPE_REHAB: Partial<Record<AxisKey, RehabItem>> = {
     ],
   },
   posture: {
-    title: "姿勢・動作型 追加メニュー",
+    title: "姿勢・動作の傾向 追加メニュー",
     details: [
       "立ち上がりは3秒以上かける",
       "歩行中は一点を見る",
@@ -48,7 +48,7 @@ export const TYPE_REHAB: Partial<Record<AxisKey, RehabItem>> = {
     ],
   },
   closedSpace: {
-    title: "閉鎖空間型 追加メニュー",
+    title: "閉鎖空間の傾向 追加メニュー",
     details: [
       "トイレや風呂に視覚アンカー（目印）を置く",
       "入室後すぐ動かず、一呼吸おく",
@@ -58,7 +58,7 @@ export const TYPE_REHAB: Partial<Record<AxisKey, RehabItem>> = {
     ],
   },
   anticipatoryAnxiety: {
-    title: "予期不安型 追加メニュー",
+    title: "予期不安の傾向 追加メニュー",
     details: [
       "「予測した不安」と「実際の症状」を記録する",
       "症状を0〜10で点数化する",
@@ -67,7 +67,7 @@ export const TYPE_REHAB: Partial<Record<AxisKey, RehabItem>> = {
     ],
   },
   avoidance: {
-    title: "回避・生活制限型 追加メニュー",
+    title: "回避・生活制限の傾向 追加メニュー",
     details: [
       "週に1つだけ目標を決める（例：家の周りを5分歩く、スーパーに5分入る）",
       "成功基準は「症状ゼロ」ではなく「予定した行動を実行できたこと」",

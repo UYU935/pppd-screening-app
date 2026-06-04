@@ -80,7 +80,7 @@ export default function DoctorSummary({ result }: Props) {
               <div className="space-y-3">
                 {checkPoints.map((cp) => (
                   <div key={cp.label}>
-                    <p className="font-bold text-brand-600">{cp.label}型</p>
+                    <p className="font-bold text-brand-600">{cp.label}の傾向</p>
                     <ul className="list-disc pl-6">
                       {cp.points.map((p, i) => (
                         <li key={i} className="text-base text-slate-700">

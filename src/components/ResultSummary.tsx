@@ -67,10 +67,10 @@ export default function ResultSummary({ result }: Props) {
         </div>
       </div>
 
-      {/* 強いタイプ */}
+      {/* 強い傾向 */}
       <div className="rounded-2xl bg-white p-6 shadow-sm">
         <h3 className="mb-3 text-xl font-bold text-slate-900">
-          目立っているタイプ
+          目立っている傾向
         </h3>
         {strong.length > 0 ? (
           <div className="flex flex-wrap gap-2">
@@ -85,7 +85,7 @@ export default function ResultSummary({ result }: Props) {
           </div>
         ) : (
           <p className="text-lg text-slate-600">
-            特に強く目立つタイプはありませんでした。
+            特に強く目立つ傾向はありませんでした。
           </p>
         )}
       </div>
@@ -106,7 +106,7 @@ export default function ResultSummary({ result }: Props) {
             <h4 className="text-lg font-bold text-slate-900">あなたの特徴</h4>
             {typeTexts.map((t) => (
               <div key={t.axis}>
-                <p className="font-bold text-brand-600">{t.label}型</p>
+                <p className="font-bold text-brand-600">{t.label}の傾向</p>
                 <p className="text-lg leading-relaxed text-slate-800">
                   {t.text}
                 </p>

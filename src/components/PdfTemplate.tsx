@@ -103,15 +103,15 @@ const PdfTemplate = forwardRef<HTMLDivElement, Props>(function PdfTemplate(
         </div>
       </section>
 
-      {/* タイプ分類 */}
+      {/* 傾向分類 */}
       <section style={{ marginBottom: "20px" }}>
         <h2 style={{ fontSize: "20px", fontWeight: 700, margin: "0 0 6px" }}>
-          タイプ分類
+          目立っている傾向
         </h2>
         <p style={{ fontSize: "15px", margin: 0 }}>
           {strong.length > 0
-            ? strong.map((s) => `${s}型`).join("　")
-            : "特に強く目立つタイプはありませんでした。"}
+            ? strong.map((s) => `${s}の傾向`).join("　")
+            : "特に強く目立つ傾向はありませんでした。"}
         </p>
       </section>
 
@@ -127,7 +127,7 @@ const PdfTemplate = forwardRef<HTMLDivElement, Props>(function PdfTemplate(
         ))}
         {typeTexts.map((t) => (
           <p key={t.axis} style={{ fontSize: "15px", margin: "0 0 6px" }}>
-            <strong>{t.label}型：</strong>
+            <strong>{t.label}の傾向：</strong>
             {t.text}
           </p>
         ))}

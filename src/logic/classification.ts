@@ -13,12 +13,12 @@ import {
 import { AXIS_LABEL } from "../types";
 import type { AxisKey, ScoreResult } from "../types";
 
-/** 強いタイプの軸ラベル一覧 */
+/** 強い傾向の軸ラベル一覧 */
 export function strongTypeLabels(result: ScoreResult): string[] {
   return result.strongTypes.map((key) => AXIS_LABEL[key]);
 }
 
-/** タイプ別の患者向け説明文（強いタイプのみ） */
+/** 傾向別の患者向け説明文（強い傾向のみ） */
 export function typeExplanations(
   result: ScoreResult
 ): { axis: AxisKey; label: string; text: string }[] {
@@ -42,7 +42,7 @@ export function scoreLevelExplanation(result: ScoreResult): string[] {
   return lines;
 }
 
-/** 提示するリハ一覧（共通＋強いタイプの追加メニュー） */
+/** 提示するリハ一覧（共通＋強い傾向の追加メニュー） */
 export function buildRehabPlan(result: ScoreResult): RehabItem[] {
   const plan: RehabItem[] = [...COMMON_REHAB];
   for (const axis of result.strongTypes) {
