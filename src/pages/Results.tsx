@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import DoctorPdfTemplate from "../components/DoctorPdfTemplate";
 import DoctorSummary from "../components/DoctorSummary";
 import PdfButton from "../components/PdfButton";
 import PdfTemplate from "../components/PdfTemplate";
@@ -15,6 +16,7 @@ type Props = {
 
 export default function Results({ result, onReset }: Props) {
   const pdfRef = useRef<HTMLDivElement>(null);
+  const doctorPdfRef = useRef<HTMLDivElement>(null);
 
   const handleReset = () => {
     if (
@@ -69,7 +71,18 @@ export default function Results({ result, onReset }: Props) {
 
       {/* 操作ボタン */}
       <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-        <PdfButton targetRef={pdfRef} />
+        <PdfButton
+          targetRef={pdfRef}
+          label="患者向けPDFを出力"
+          fileName="PPPD傾向チェック_患者向け.pdf"
+          variant="patient"
+        />
+        <PdfButton
+          targetRef={doctorPdfRef}
+          label="医師向けPDFを出力"
+          fileName="PPPD傾向チェック_医師向け.pdf"
+          variant="doctor"
+        />
         <button
           type="button"
           onClick={handleReset}
@@ -93,6 +106,7 @@ export default function Results({ result, onReset }: Props) {
         aria-hidden="true"
       >
         <PdfTemplate ref={pdfRef} result={result} />
+        <DoctorPdfTemplate ref={doctorPdfRef} result={result} />
       </div>
     </div>
   );

@@ -48,6 +48,8 @@ export type ScoreResult = {
   strongTypes: AxisKey[];
   /** レッドフラッグに1つでも該当があるか */
   redFlagPositive: boolean;
+  /** 「はい」と回答したレッドフラッグの本文一覧 */
+  redFlagHits: string[];
 };
 
 /** 回答状態：未回答は undefined */

@@ -1,4 +1,5 @@
 import { QUESTIONS } from "../data/questions";
+import { RED_FLAGS } from "../data/redFlags";
 import { AXIS_ORDER } from "../types";
 import type {
   Answers,
@@ -43,9 +44,10 @@ export function computeScore(
   const strongTypes = AXIS_ORDER.filter(
     (key) => axes[key] >= STRONG_AXIS_THRESHOLD
   );
-  const redFlagPositive = Object.values(redFlagAnswers).some(
-    (v) => v === true
-  );
+  const redFlagHits = RED_FLAGS.filter(
+    (rf) => redFlagAnswers[rf.id] === true
+  ).map((rf) => rf.text);
+  const redFlagPositive = redFlagHits.length > 0;
 
   return {
     total,
@@ -53,6 +55,7 @@ export function computeScore(
     severityLabel: getSeverityLabel(total),
     strongTypes,
     redFlagPositive,
+    redFlagHits,
   };
 }
 

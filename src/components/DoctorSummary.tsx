@@ -7,7 +7,7 @@ type Props = {
   result: ScoreResult;
 };
 
-/** 医師用サマリー（画面内のみ・PDFには含めない） */
+/** 医師用サマリー（画面内表示。同内容は「医師向けPDF」でも出力可能） */
 export default function DoctorSummary({ result }: Props) {
   const [open, setOpen] = useState(false);
 
@@ -26,7 +26,7 @@ export default function DoctorSummary({ result }: Props) {
         className="flex w-full items-center justify-between text-left"
       >
         <h3 className="text-xl font-bold text-slate-800">
-          医師用サマリー（画面内のみ・PDF非掲載）
+          医師用サマリー（「医師向けPDF」で出力可）
         </h3>
         <span className="text-2xl text-slate-500">{open ? "−" : "＋"}</span>
       </button>
@@ -59,6 +59,24 @@ export default function DoctorSummary({ result }: Props) {
               </p>
             </div>
           </div>
+
+          {result.redFlagPositive && (
+            <div className="rounded-lg border-2 border-red-300 bg-red-50 p-4">
+              <p className="mb-2 font-bold text-red-700">
+                レッドフラッグ該当項目（「はい」の回答）
+              </p>
+              <ul className="list-disc space-y-1 pl-6">
+                {result.redFlagHits.map((t, i) => (
+                  <li key={i} className="text-base font-bold text-red-800">
+                    {t}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-2 text-sm text-red-700">
+                器質的疾患の除外を優先してください。
+              </p>
+            </div>
+          )}
 
           <div className="rounded-lg bg-white p-4 shadow-sm">
             <p className="mb-2 font-bold text-slate-800">各軸スコア</p>
