@@ -95,7 +95,10 @@ export default function Results({ result, onReset }: Props) {
         PDFを出力したら「リセット」を押して、次の方のために結果を消去してください。
       </p>
 
-      {/* PDF用の版面（画面外に配置してキャプチャ） */}
+      {/* PDF用の版面（画面外に配置してキャプチャ）。
+          各版面は独立したコンテナに入れ、いずれも top:0 に配置する。
+          1つのコンテナに縦並びにすると、2枚目がビューポート外となり
+          html2canvasで空画像になることがあるため分離している。 */}
       <div
         style={{
           position: "fixed",
@@ -106,6 +109,16 @@ export default function Results({ result, onReset }: Props) {
         aria-hidden="true"
       >
         <PdfTemplate ref={pdfRef} result={result} />
+      </div>
+      <div
+        style={{
+          position: "fixed",
+          left: "-10000px",
+          top: 0,
+          pointerEvents: "none",
+        }}
+        aria-hidden="true"
+      >
         <DoctorPdfTemplate ref={doctorPdfRef} result={result} />
       </div>
     </div>
