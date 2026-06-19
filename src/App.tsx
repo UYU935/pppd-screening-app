@@ -34,6 +34,22 @@ export default function App() {
     window.scrollTo({ top: 0 });
   };
 
+  // 誤タップ防止：入力中・結果表示中は確認してから戻る。
+  const confirmReset = () => {
+    const hasData =
+      Object.keys(answers).length > 0 ||
+      Object.keys(redFlagAnswers).length > 0;
+    if (
+      hasData &&
+      !window.confirm(
+        "入力した回答と表示中の結果はすべて消去されます。本当に最初に戻りますか？"
+      )
+    ) {
+      return;
+    }
+    reset();
+  };
+
   const goto = (p: Page) => {
     setPage(p);
     window.scrollTo({ top: 0 });
@@ -53,7 +69,7 @@ export default function App() {
           {page !== "home" && (
             <button
               type="button"
-              onClick={reset}
+              onClick={confirmReset}
               className="rounded-lg border border-slate-300 px-3 py-1 text-base text-slate-600 hover:bg-slate-100"
             >
               最初に戻る
